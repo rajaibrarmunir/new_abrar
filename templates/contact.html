@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="mt-4">Contact</h1>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <form action="/contact" id="contactForm" method="POST">
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Enter name" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="email" placeholder="Enter email" type="text">
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label" id='text2'>What would you like us to know?</label>
+                        <textarea class="form-control" name="message" form="contactForm" rows="3"></textarea>
+                    </div>
+                    <br>
+                    <button class="btn btn-dark" type="submit">Send message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

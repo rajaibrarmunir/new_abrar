@@ -1,0 +1,115 @@
+body {
+    background-color: #D5F3FE;
+}
+
+main {
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+    /* Center contents */
+    text-align: center;
+}
+
+main .c {
+    /* Center form controls */
+    display: inline-block;
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+    margin: 7px;
+    border-width: 1px;
+    border-color: rgb(13, 177, 226);
+}
+
+main .border-add {
+    border-width: 1px;
+    border-color: rgb(116, 9, 9);
+}
+
+main #note-delete-button {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+main .btn-dark {
+    margin: 7px;
+    margin-bottom: 10px;
+}
+
+main .btn-dark:hover,
+.btn-dark:focus {
+    color: darkgrey;
+}
+
+main #note-card {
+    margin: 20px;
+}
+
+main #welcome-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main #welcome-animation span {
+    text-transform: uppercase;
+    display: block;
+}
+
+main .text1 {
+    color: #2565AE;
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text 3s 1;
+}
+h1 {
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text 3s 1;
+    color: #2565AE;
+}
+
+main .text2 {
+    font-size: 40px;
+    color: #0F5298;
+    animation: text 3s 1;
+}
+
+main #quote .blockquote {
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+main .delete-form {
+    margin: 7px;
+}
+
+main .delete-form .btn-dark {
+    margin: 7px;
+}
+#text2 {
+    font-size: 20px;
+    color: rgb(216, 255, 255);
+    
+}
+
+@keyframes text {
+    0% {
+        color: rgb(224, 206, 206);
+        margin-bottom: -20px;
+    }
+    30% {
+        letter-spacing: 40px;
+        margin-bottom: -40px;
+    }
+    85% {
+        letter-spacing: 10px;
+        margin-bottom: -40px;
+    }
+}

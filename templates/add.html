@@ -1,0 +1,22 @@
+{% extends "stuff.html" %}
+
+{% block title %}
+    Add Note
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="mt-4">Add Note</h1>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <form action="/notes/add-note" method="post">
+                    <div class="mb-3">
+                        <input class="form-control" name="new_note" placeholder="Add Note" type="text">
+                    </div>
+                    <button class="btn btn-primary btn-lg" type="submit">Add Note</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

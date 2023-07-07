@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Notes
+{% endblock %}
+
+{% block main %}
+    <form action="/notes/delete-note" method="POST" class="delete-form">
+        <div class="form-group">
+            <input class="c" autocomplete="off" name="note-id" placeholder="Enter Note Id" type="number">
+            <button id="submit" class="btn btn-warning btn-sm" type="submit">Delete</button>
+        </div>
+    </form>
+
+    {% if not notes %}
+        <h3>You have no notes. Click the button to add notes</h3>
+    {% else %}
+        <div id="stuff-view" class="row">
+            {% for note in notes %}
+                <div id="note-card" class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Id: {{ note[0] }}</div>
+                    <div class="card-body">
+                        <h5 class="card-text">{{ note[2] }}</h5>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        function submit_entry() {
+            var title = document.getElementById("title");
+            var content = document.getElementById("content");
+            
+            if (!content.value) {
+                document.querySelector("#create").disabled = false;
+                window.alert("Must have content to create a note");
+                return;
+            }
+
+            var entry = {
+                title: title.value,
+                content: content.value
+            };
+
+            fetch(`${window.origin}/notes/add-note`, {
+                method: "POST",
+                credentials: "include",
+                body: JSON.stringify(entry),
+                cache: "no-cache",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            })
+            .then(function (response) {
+                if (response.status !== 200) {
+                    console.log(`Response status was not 200: ${response.status}`);
+                    return;
+                }
+            })
+            .then(function () {
+                $("#exampleModal").modal("hide");
+                location.reload();
+            });
+        }
+    </script>
+{% endblock %}
